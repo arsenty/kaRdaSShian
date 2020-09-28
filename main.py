@@ -1,4 +1,4 @@
-import urllib2
+import urllib.request
 from flask import Flask, request
 from lxml import etree
 
@@ -12,9 +12,9 @@ def main():
     content_filters = request.args.get("content_filters")
 
     # Create/open request, spoof user agent for picky feeds
-    req = urllib2.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) "\
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) "\
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'})
-    feed_content = urllib2.urlopen(req)
+    feed_content = urllib.request.urlopen(req)
     fetched_feed = feed_content.read()
 
     # Parse content to XML
