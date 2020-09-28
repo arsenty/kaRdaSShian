@@ -36,7 +36,7 @@ def main():
                 matched_item.getparent().remove(matched_item)
 
     # Convert back to string, return
-    filtered_feed = etree.tostring(parsed_feed, encoding="utf-8", xml_declaration=True, pretty_print=True)
+    filtered_feed = etree.tostring(parsed_feed)
     return unicode(filtered_feed), 200, {'Content-Type': 'application/xml'}
 
 if __name__ == '__main__':
